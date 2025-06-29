@@ -46,7 +46,6 @@ npm start
 ## 🙌 Contributing
 
 Contributions are welcome!  
-Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
