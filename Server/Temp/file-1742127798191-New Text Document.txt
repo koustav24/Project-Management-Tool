@@ -1,0 +1,79 @@
+Conversation opened. 1 read message.
+
+Skip to content
+Using Gmail with screen readers
+in:sent 
+1 of 106
+(no subject)
+
+Kaustubh Upare <kupare330@gmail.com>
+2:12 PM (14 minutes ago)
+to nosharing3
+
+import React, { useState } from "react";
+
+// Hardcoded exchange rates (1 unit of currency in terms of other currencies)
+const exchangeRates = {
+  USD: { INR: 83.0, EUR: 0.91, GBP: 0.77, JPY: 151.0 },
+  INR: { USD: 0.012, EUR: 0.011, GBP: 0.0093, JPY: 1.82 },
+  EUR: { USD: 1.1, INR: 91.0, GBP: 0.85, JPY: 166.0 },
+  GBP: { USD: 1.3, INR: 108.0, EUR: 1.17, JPY: 195.0 },
+  JPY: { USD: 0.0066, INR: 0.55, EUR: 0.006, GBP: 0.0051 }
+};
+
+const CurrencyConverter = () => {
+  const [amount, setAmount] = useState(1);
+  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [toCurrency, setToCurrency] = useState("INR");
+  const [convertedAmount, setConvertedAmount] = useState(null);
+
+  const handleConvert = () => {
+    if (fromCurrency === toCurrency) {
+      setConvertedAmount(amount);
+    } else {
+      const rate = exchangeRates[fromCurrency][toCurrency];
+      setConvertedAmount((amount * rate).toFixed(2));
+    }
+  };
+
+  return (
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <h2>Currency Converter</h2>
+      <div style={{ marginBottom: "10px" }}>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Enter amount"
+        />
+      </div>
+      <div style={{ marginBottom: "10px" }}>
+        <label>From: </label>
+        <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
+          {Object.keys(exchangeRates).map((currency) => (
+            <option key={currency} value={currency}>{currency}</option>
+          ))}
+        </select>
+      </div>
+      <div style={{ marginBottom: "10px" }}>
+        <label>To: </label>
+        <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
+          {Object.keys(exchangeRates).map((currency) => (
+            <option key={currency} value={currency}>{currency}</option>
+          ))}
+        </select>
+      </div>
+      <button onClick={handleConvert} style={{ padding: "10px", cursor: "pointer" }}>
+        Convert
+      </button>
+      {convertedAmount !== null && (
+        <h3 style={{ marginTop: "20px" }}>
+          {amount} {fromCurrency} = {convertedAmount} {toCurrency}
+        </h3>
+      )}
+    </div>
+  );
+};
+
+export default CurrencyConverter;
+

@@ -1,0 +1,16 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #191D1D;
+  }
+
+.navLinkHover{
+  padding: 8px;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;  
+}
+.navLinkHover:hover{
+  background-color: rgba(51, 163, 201, 0.97); /* Light blue on hover */
+  color: darkblue;
+}
