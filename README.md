@@ -18,22 +18,6 @@ A powerful and intuitive Project Management Tool built with JavaScript to stream
 
 ---
 
-## 🖥️ Demo
-
-<!-- Add a link to your live demo if available -->
-[Live Demo](#)  
-*Coming Soon!*
-
----
-
-## 📸 Screenshots
-
-<!-- Insert screenshots or GIFs of your application -->
-![Screenshot 1](assets/screenshot1.png)  
-![Screenshot 2](assets/screenshot2.png)
-
----
-
 ## 📦 Installation
 
 ```bash
